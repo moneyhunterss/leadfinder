@@ -1,0 +1,51 @@
+name: LeadFinder bot (long-running)
+
+# ──────────────────────────────────────────────────────────────────────────
+# Runs the interactive Telegram bot as a long-running process on GitHub
+# Actions. Auto-restarts every 5h55m to stay under Actions' 6h job timeout.
+#
+# This is a poor-man's VPS — for true 24/7 use, deploy `bot.py` on
+# Render/Railway/Fly.io free tier or your own machine. This workflow is a
+# fallback if you have nothing else.
+#
+# Required GitHub Secrets:
+#   TELEGRAM_BOT_TOKEN  — from @BotFather
+# ──────────────────────────────────────────────────────────────────────────
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'   # check every 5 min — only starts if no recent run
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: leadfinder-bot
+  cancel-in-progress: false
+
+jobs:
+  run-bot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 355  # 5h55m — under Actions' 6h cap
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r leadfinder/requirements.txt
+
+      - name: Run bot
+        working-directory: leadfinder
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          timeout 350m python bot.py || true

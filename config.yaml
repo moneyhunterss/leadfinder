@@ -1,0 +1,122 @@
+# LeadFinder configuration
+
+# Anonymity mode: direct | tor | proxy
+anonymity: direct
+tor_socks: "socks5://127.0.0.1:9050"
+proxy_list_url: ""  # leave empty to use built-in free-proxy fallback
+
+# Re-scan interval (minutes) for watch mode
+interval_minutes: 20
+
+# Min relevance score (0-100) to keep a lead
+min_score: 30
+
+# Max age in hours to keep a lead fresh
+max_age_hours: 168  # 7 days
+
+# Sources
+sources:
+  reddit:
+    enabled: true
+    subreddits:
+      - slavelabour
+      - Jobs4Bitcoins
+      - DigitalCartel
+      - forhire
+      - jobbit
+      - EmployedFreelancers
+      - HireaWriter
+      - copywriting
+      - ProgrammingPromos
+      - sysadminjobs
+      - learnpython
+      - webdev
+      - datasets
+      - freelance
+      - freelance_forhire
+      - ethtrader
+      - CryptoCurrency
+    flairs_whitelist: [Task, HIRE, Hiring, PAID, Paid Task, Offering, For Hire]
+    sort: new
+    limit_per_sub: 25
+  hackernews:
+    enabled: true
+    include_who_is_hiring: true
+  bitcointalk:
+    enabled: true
+    board_id: 73
+  laborx:
+    enabled: true
+  gitcoin:
+    enabled: true
+  cryptotask:
+    enabled: true
+  telegram:
+    enabled: false
+    session_cookie: ""
+  discord:
+    enabled: false
+    session_token: ""
+
+# Filter rules
+filters:
+  # Whitelist — at least one match keeps the lead
+  keyword_whitelist:
+    - hire
+    - hiring
+    - looking for
+    - need someone
+    - need a
+    - will pay
+    - willing to pay
+    - paid
+    - payment
+    - budget
+    - "task"
+    - gig
+    - freelance
+    - contract
+    - bounty
+    - reward
+    - "compute"
+    - "\\$\\d+"          # $X budget
+    - "\\d+\\s*(?:btc|eth|usdt|usdc|xmr|sol)"  # crypto amounts
+  # Blacklist — any match drops the lead
+  keyword_blacklist:
+    - giveaway
+    - airdrop
+    - free money
+    - scam
+    - "free $"
+    - "earn $"
+    - "click here"
+    - referral code
+    - "https://t.me"  # telegram spam funnels
+    - "dm me on instagram"
+  # Payment signals — boost score
+  payment_signals:
+    - btc
+    - bitcoin
+    - eth
+    - ethereum
+    - usdt
+    - usdc
+    - xmr
+    - monero
+    - sol
+    - solana
+    - paypal
+    - "venmo"
+    - cashapp
+    - wise
+    - "payeer"
+    - crypto
+    - cryptocurrency
+    - "stablecoin"
+
+# Outreach generation
+outreach:
+  enabled: true
+  tone: direct        # direct | friendly | formal
+  max_words: 80
+  include_pricing_prompt: true
