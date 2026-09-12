@@ -1,12 +1,11 @@
-"""Telegram notifier — sends new high-score leads to a Telegram chat.
+"""Telegram notifier — sends new high-score leads to a Telegram chat (HTML mode).
 
 Reads env vars:
     TELEGRAM_BOT_TOKEN   (required)
     TELEGRAM_CHAT_ID     (required)
 
-Reads the previous leads.json (if any) from --prev-state path.
-Compares against the current leads.json (--curr-state path).
-Sends one Telegram message per new lead above the score threshold.
+Reads previous leads.json (prev-state) and current leads.json (curr-state),
+sends one message per NEW lead above the score threshold.
 
 Usage:
     python notify_telegram.py \\
@@ -28,19 +27,36 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s %(levelname)s %(mess
 log = logging.getLogger("telegram")
 
 
+def escape_html(text) -> str:
+    if text is None:
+        return ""
+    return (str(text).replace("&", "&amp;")
+                     .replace("<", "&lt;")
+                     .replace(">", "&gt;"))
+
+
 def send_message(bot_token: str, chat_id: str, text: str) -> bool:
-    """Send a single Telegram message. Returns True on success."""
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"
     payload = urllib.parse.urlencode({
         "chat_id": chat_id,
         "text": text,
-        "parse_mode": "Markdown",
-        "disable_web_page_preview": "true",
+        "parse_mode": "HTML",
+        "disable_web_page_preview": "false",
     }).encode("utf-8")
     try:
         req = urllib.request.Request(url, data=payload, method="POST")
         with urllib.request.urlopen(req, timeout=15) as r:
             resp = json.loads(r.read())
+        if not resp.get("ok"):
+            # Fallback: plain text
+            payload = urllib.parse.urlencode({
+                "chat_id": chat_id,
+                "text": text,
+                "disable_web_page_preview": "false",
+            }).encode("utf-8")
+            req = urllib.request.Request(url, data=payload, method="POST")
+            with urllib.request.urlopen(req, timeout=15) as r:
+                resp = json.loads(r.read())
         return resp.get("ok", False)
     except Exception as e:
         log.warning("telegram send failed: %s", e)
@@ -48,28 +64,27 @@ def send_message(bot_token: str, chat_id: str, text: str) -> bool:
 
 
 def format_lead(lead: dict) -> str:
-    """Format a lead as a Markdown message — Telegram-friendly."""
-    title = (lead.get("title") or "")[:120]
+    """HTML-formatted lead message — handles brackets safely."""
+    title = escape_html((lead.get("title") or "")[:120])
     url = lead.get("url", "")
-    source = lead.get("source", "")
+    source = escape_html(lead.get("source", ""))
     score = lead.get("score", 0)
-    budget = ", ".join(lead.get("budget_signals", [])) or "—"
-    payment = ", ".join(lead.get("payment_signals", [])) or "—"
-    snippet = (lead.get("snippet") or "")[:280].replace("\n", " ")
-    outreach = (lead.get("outreach_draft") or "")[:600]
+    budget = escape_html(", ".join(lead.get("budget_signals", [])) or "—")
+    payment = escape_html(", ".join(lead.get("payment_signals", [])) or "—")
+    snippet = escape_html((lead.get("snippet") or "")[:280].replace("\n", " "))
+    outreach = escape_html(lead.get("outreach_draft") or "")
 
     msg = (
-        f"*[{score}] {title}*\n"
-        f"`{source}`\n"
-        f"\n"
-        f"*URL:* {url}\n"
-        f"*Budget:* {budget}\n"
-        f"*Payment:* {payment}\n"
+        f"<b>[{score}] {title}</b>\n"
+        f"<code>{source}</code>\n\n"
+        f"<b>URL:</b> {url}\n"
+        f"<b>Budget:</b> {budget}\n"
+        f"<b>Payment:</b> {payment}\n"
     )
     if snippet:
-        msg += f"\n_{snippet}_\n"
+        msg += f"\n<i>{snippet}</i>\n"
     if outreach:
-        msg += f"\n*Draft outreach:*\n```\n{outreach}\n```\n"
+        msg += f"\n<b>Reply text (copy & paste):</b>\n<pre>{outreach}</pre>\n"
     return msg
 
 
@@ -109,11 +124,10 @@ def main():
     new_leads = [curr[u] for u in new_urls if curr[u].get("score", 0) >= args.min_score]
     new_leads.sort(key=lambda x: -x.get("score", 0))
 
-    log.info("prev=%d curr=%d new=%d new_above_%d=%d",
-             len(prev), len(curr), len(new_urls), args.min_score, len(new_leads))
+    log.info("prev=%d curr=%d new_above_%d=%d", len(prev), len(curr), args.min_score, len(new_leads))
 
     if not new_leads:
-        msg = f"_No new leads above score {args.min_score} this run. (Total tracked: {len(curr)})_"
+        msg = f"<i>No new leads above score {args.min_score} this run. ({len(curr)} tracked total.)</i>"
         if args.dry_run:
             print(msg)
         else:
@@ -132,10 +146,8 @@ def main():
                 sent += 1
             time.sleep(1)
 
-    if not args.dry_run and sent < len(new_leads[: args.max_messages]):
-        log.warning("sent %d of %d", sent, len(new_leads[: args.max_messages]))
-    else:
-        log.info("sent %d messages", sent)
+    if not args.dry_run:
+        log.info("sent %d/%d messages", sent, len(new_leads[: args.max_messages]))
 
 
 if __name__ == "__main__":
