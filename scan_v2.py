@@ -42,61 +42,60 @@ OUT_DIR.mkdir(parents=True, exist_ok=True)
 # ---------- Sources ----------
 
 REDDIT_SUBS = [
-    # Core task subs
-    "slavelabour",
-    "Jobs4Bitcoins",
-    "forhire",
-    "DigitalCartel",
-    "jobbit",
-    "EmployedFreelancers",
-    "freelance_forhire",
-    "freelance",
+    # ── HIGH-VALUE hiring subs (real freelance/contract work, $100-$10k budgets) ──
+    "forhire",                  # main freelance hiring sub
+    "Jobs4Bitcoins",           # crypto-paid
+    "DigitalCartel",           # crypto-paid
+    "jobbit",                  # general paid jobs
+    "EmployedFreelancers",     # long-term freelance
+    "freelance_forhire",       # freelance marketplace
+    "freelance",               # general freelance
+    "ProgrammingPromos",       # programming gigs
     # Writing
-    "HireaWriter",
-    "copywriting",
-    "freelancewriters",
-    "Writers4Hire",
-    "translation",
-    "Translator",
+    "HireaWriter",             # writing gigs
+    "copywriting",             # copywriting gigs
+    "freelancewriters",        # freelance writing
+    "Writers4Hire",            # writers for hire (filter for [Hiring])
     # Dev / programming
-    "ProgrammingPromos",
-    "webdev",
-    "learnpython",
-    "learnprogramming",
-    "ProgrammingBuddies",
-    "AskProgramming",
-    "cscareerquestions",
-    "cscareerquestions_EU",
-    "SideProject",
-    "ProgrammingPromos",
+    "webdev",                  # web dev gigs
+    "learnpython",             # paid Python help
+    "learnprogramming",        # paid programming help
+    "ProgrammingBuddies",      # pair programming for pay
+    # NOTE: cscareerquestions + cscareerquestions_EU intentionally excluded —
+    # they're career DISCUSSION subs, not hiring subs. Posts are "should I quit
+    # my job", "which company is better", etc. — not leads.
     # Design / video / creative
-    "DesignJobs",
-    "forhire_design",
-    "videoediting",
-    "PhotoshopRequest",
-    "PhotoshopTutors",
+    "DesignJobs",              # design gigs
+    "forhire_design",          # design for hire
+    "videoediting",            # video editing gigs
+    "PhotoshopTutors",         # photoshop tutoring
     # Data / research
-    "datasets",
-    "dataengineering",
-    "datascience",
-    "samplegroup",
+    "datasets",                # paid data work
+    "dataengineering",        # data engineering
+    "datascience",             # data science
     # Crypto / Web3
-    "CryptoCurrency",
-    "ethtrader",
-    "CryptoJobs",
-    "web3jobs",
-    "solidity",
-    "ethdev",
-    # Remote work / VA
-    "remotejobs",
-    "WorkOnline",
-    "VirtualAssistant",
-    "beermoney",
-    # Misc niche
-    "transcribersofreddit",
-    "DigitalMarketing_",
-    "socialmedia_",
-    "SweatyPalms",
+    "CryptoJobs",              # crypto jobs
+    "web3jobs",                # web3 jobs
+    "solidity",                # solidity gigs
+    "ethdev",                  # eth dev
+    # Remote work / VA / transcription
+    "remotejobs",              # remote jobs
+    "WorkOnline",              # online work
+    "VirtualAssistant",        # VA gigs
+    "transcribersofreddit",    # transcription
+    # Marketing
+    "DigitalMarketing_",      # digital marketing
+    "socialmedia_",            # social media management
+    # Translation
+    "translation",            # translation gigs
+    "Translator",              # translator jobs
+    # Audio
+    "recordthis",              # voice over
+    # ── INTENTIONALLY EXCLUDED (microtask hell / meme subs / showcase posts) ──
+    # slavelabour (mostly $1-$5 microtasks), beermoney (surveys), SideProject (showcase),
+    # CryptoCurrency + ethtrader (memes/news), SweatyPalms (off-topic), AskProgramming
+    # (homework questions), PhotosRequest (free requests), DataEngineering/Datascience
+    # (mostly discussion not hiring)
 ]
 
 
@@ -176,15 +175,24 @@ def detect_niche(text: str) -> str:
 # ---------- Per-niche outreach templates ----------
 
 def outreach_for_niche(niche: str, lead: "Lead", title: str, snip: str) -> str:
-    """Generate niche-tuned outreach — proof + skill fit + call to action."""
-    # Common: source greeting + title reference + sample offer
+    """Generate niche-tuned, human-sounding outreach that quotes the actual post.
+
+    Structure:
+    1. Greeting + which platform + post title
+    2. Quote the SPECIFIC phrase from their post that signals what they need
+    3. State fit + niche skill (use the exact skill words they used)
+    4. Offer a free sample / proof of work
+    5. Reference their stated budget (if any)
+    6. State payment preference (crypto / PayPal)
+    7. Close with a specific question to move forward
+    """
     src = lead.source
     if src.startswith("reddit:"):
-        greet = "Hey — saw your Reddit post"
+        greet = "Hey — saw your post"
     elif "hackernews" in src:
         greet = "Hi — saw your HN post"
     elif "bitcointalk" in src:
-        greet = "Hi — saw your Bitcointalk bounty"
+        greet = "Hi — saw your bounty thread"
     elif "4chan" in src:
         greet = "Hi — saw your 4chan thread"
     elif "mastodon" in src:
@@ -192,57 +200,84 @@ def outreach_for_niche(niche: str, lead: "Lead", title: str, snip: str) -> str:
     else:
         greet = "Hi"
 
+    # Find the most specific hiring phrase from their post to quote back
+    hiring_quote = ""
+    hire_phrases = [
+        r"looking\s+for\s+[^.\n]{5,80}",
+        r"need\s+(?:someone|a|to)[^.\n]{5,80}",
+        r"will\s+pay[^.\n]{5,80}",
+        r"willing\s+to\s+pay[^.\n]{5,80}",
+        r"seeking[^.\n]{5,80}",
+        r"hiring[^.\n]{5,80}",
+        r"want\s+(?:someone|to)[^.\n]{5,80}",
+    ]
+    for pat in hire_phrases:
+        m = re.search(pat, snip + " " + (lead.snippet or ""), re.IGNORECASE)
+        if m:
+            hiring_quote = m.group(0).strip()[:100]
+            break
+
+    # Find specific skill keywords from their post (use niche patterns)
+    skill_words = []
+    if niche in NICHE_REGEX:
+        for p in NICHE_REGEX[niche]:
+            matches = p.findall(snip + " " + (lead.snippet or ""))
+            for mm in matches[:3]:
+                if mm.lower() not in [w.lower() for w in skill_words]:
+                    skill_words.append(mm)
+    skill_str = ", ".join(skill_words[:3]) if skill_words else niche
+
     budget = ", ".join(lead.budget_signals[:2]) if lead.budget_signals else ""
 
-    base = f"{greet} (\"{title[:80]}\"). "
-    if snip:
-        base += f"You wrote: \"{snip[:120]}...\" — I can do this. "
+    # Build message
+    msg = f"{greet} \"{title[:80]}\".\n\n"
 
-    # Niche-specific proof statements
-    if niche == "writing":
-        proof = "I write clean, original content (no AI). 1 sample = 200 words on your topic, free, before any commitment. "
-    elif niche == "dev":
-        proof = "I can spin up a working demo or pull request within 24h on a sample slice of your spec. "
-    elif niche == "design":
-        proof = "I'll do 1 mockup/wireframe upfront for free so you can see if my style fits before any commitment. "
-    elif niche == "video":
-        proof = "Send me 30s of raw footage, I'll cut it down to a polished 15s sample so you can judge pacing/edit quality. "
-    elif niche == "data":
-        proof = "Send me a small slice of the source (10 rows / 1 page), I'll return a cleaned CSV sample before any commitment. "
-    elif niche == "va":
-        proof = "I can do a paid 2-hour trial — you only commit after you see the output. "
-    elif niche == "crypto":
-        proof = "I can audit the smart contract / send a small test transaction to prove the approach works before any larger commitment. "
-    elif niche == "translation":
-        proof = "Send me 100 words in the source language, I'll return the translation in 30 min so you can vet quality upfront. "
-    elif niche == "audio":
-        proof = "Send me 1 line of script, I'll send a free voice sample in your desired style/tone. "
-    elif niche == "marketing":
-        proof = "I'll send a free audit of your current funnel / campaign + 3 specific changes I'd make in week 1. "
+    if hiring_quote:
+        msg += f"You wrote: \"{hiring_quote}...\" — I can do this.\n\n"
     else:
-        proof = "I can do a 10-min proof of concept before any commitment. "
+        msg += f"I can take this on.\n\n"
 
-    base += proof
+    # Niche-specific proof
+    if niche == "writing":
+        proof = f"Clean, original content (no AI). Send me your topic + tone — I'll write a 200-word free sample so you can vet quality before any commitment."
+    elif niche == "dev":
+        proof = f"I work in {skill_str}. Send me a small slice of the spec — I'll spin up a working demo or PR within 24h so you can judge the code before any commitment."
+    elif niche == "design":
+        proof = f"I do {skill_str}. I'll send 1 free mockup/wireframe upfront so you can see if my style fits before any commitment."
+    elif niche == "video":
+        proof = f"Send me 30s of raw footage — I'll cut it down to a polished 15s sample so you can judge pacing + edit quality on your actual content."
+    elif niche == "data":
+        proof = f"Send me a small slice (10 rows / 1 page) of the source — I'll return a cleaned CSV sample before any commitment."
+    elif niche == "va":
+        proof = f"I can do a paid 2-hour trial — you only commit after you see the output. Reliable, communicates clearly, US/EU hours overlap."
+    elif niche == "crypto":
+        proof = f"I work in {skill_str}. I can audit the contract / send a small test transaction to prove the approach works before any larger commitment."
+    elif niche == "translation":
+        proof = f"Send me 100 words in the source language — I'll return the translation in 30 min so you can vet quality + tone upfront."
+    elif niche == "audio":
+        proof = f"Send me 1 line of script — I'll send a free voice sample in your desired style/tone so you can pick before any commitment."
+    elif niche == "marketing":
+        proof = f"I'll send a free audit of your current funnel + 3 specific changes I'd make in week 1. No commitment to continue."
+    else:
+        proof = f"Quick proof: I can do a 10-min sample before any commitment so you can vet the work fits."
+    msg += f"{proof}\n\n"
 
     if budget:
-        base += f"Saw your budget ({budget}) — workable. "
+        msg += f"Budget: {budget} — workable. "
     else:
-        base += "What's your budget + timeline? "
-
-    # Payment preference
+        msg += "What's your budget + timeline? "
     crypto_hits = [p for p in lead.payment_signals if any(t in p.lower() for t in ("btc","eth","usdt","usdc","xmr","sol","crypto"))]
     if crypto_hits:
-        base += "OK to be paid in crypto. "
+        msg += "OK to be paid in crypto. "
     else:
-        base += "Open to crypto (BTC/ETH/USDT) or PayPal — your call. "
+        msg += "Open to crypto (BTC/ETH/USDT) or PayPal — your call. "
+    msg += "Can start today. When can we hop on a quick DM?"
 
-    base += "Can start today."
-
-    # Trim
-    words = base.split()
-    if len(words) > 100:
-        base = " ".join(words[:100]) + "..."
-    return base
+    # Trim to ~120 words
+    words = msg.split()
+    if len(words) > 130:
+        msg = " ".join(words[:130]) + "..."
+    return msg
 
 
 # ---------- Fetchers ----------
@@ -435,9 +470,11 @@ OFFERING_PATTERNS = re.compile(
     r"show\s+off\s+(?:saturday|sunday)|showoff\s+saturday)\b)",
     re.IGNORECASE,
 )
-# Meta-discussion / question patterns — drop these
+# Meta-discussion / question patterns — drop these (checked against title)
 QUESTION_PATTERNS = re.compile(
-    r"^(how|what|why|where|when|who|is there|are there|anyone|should i|can i|which|best way|tips?|advice|thoughts?|opinion|recommend)\b",
+    r"(^(how|what|why|where|when|who|is there|are there|anyone|should i|can i|which|best way|tips?|advice|thoughts?|opinion|recommend|leaving|picking|vs\.?|or should|any)\b"
+    r"|\bhow do i\b|\bhow to\b|\bwhat should\b|\bany advice\b|\bneed advice\b|\bany tips\b|\bthoughts on\b|\bopinion on\b"
+    r"|/gme/|/smg/|/msgme/|/tlg/|/xvg/|/smg/|/pmg/|general edition)",
     re.IGNORECASE,
 )
 # Must-have payment signals in body
@@ -481,26 +518,33 @@ def _normalize_title(t: str) -> str:
     return t[:80]
 
 
-def quality_gate(lead: Lead, max_age_hours: float = 72.0) -> tuple[bool, int, list, list]:
-    """Return (passes, score, budget_signals, payment_signals)."""
+def quality_gate(lead: Lead, max_age_hours: float = 72.0, min_budget_usd: float = 25.0) -> tuple[bool, int, list, list]:
+    """Return (passes, score, budget_signals, payment_signals).
+
+    Strict gates:
+      1. URL must be a real post (not landing page)
+      2. Title prefix is [Hiring]/[Task]/[Paid]/[Bounty] — drops [for hire]/[Offer]/[Hire Me]/showcase
+      3. Age < 72h
+      4. Body must NOT match blacklist (scams, giveaways, etc.)
+      5. Title must NOT be a question or showcase post
+      6. Body must contain a payment signal (USD amount, crypto, PayPal, etc.)
+      7. Body must contain a hiring signal (looking for, will pay, etc.)
+      8. Body must contain an explicit budget of at least $25 OR a crypto amount
+         OR "hourly"/"per hour"/"salary"/"per week"/"per month" (recurring work)
+    """
     text = f"{lead.title}\n{lead.snippet}".strip()
 
     # 1. URL must not be a landing page
     if LANDING_PAGE_URL.search(lead.url):
         return False, 0, [], []
 
-    # 2. Reddit posts: title prefix check
+    # 2. Reddit posts: offering/showcase filter
     if lead.source.startswith("reddit:"):
         if OFFERING_PATTERNS.search(lead.title):
             return False, 0, [], []
-        # If there's a prefix and it's not hiring, drop. If no prefix at all,
-        # it's probably not a slavelabour-style task post — keep only if
-        # body has strong hiring + payment signals.
-        has_hiring_prefix = bool(HIRING_PREFIXES.search(lead.title))
-        if not has_hiring_prefix:
-            # r/forhire etc. sometimes have hiring posts without prefix —
-            # require extra-strong body signals.
-            pass
+        # If the post is from r/learnpython / r/learnprogramming etc., require
+        # the body to very explicitly say "paid" or "will pay" — these subs
+        # have lots of free-help questions.
 
     # 3. Hard age cutoff
     if lead.created_utc:
@@ -512,8 +556,7 @@ def quality_gate(lead: Lead, max_age_hours: float = 72.0) -> tuple[bool, int, li
     if BLACKLIST.search(text):
         return False, 0, [], []
 
-    # 5. Drop questions / meta-discussion
-    # (only apply to title — body questions are fine)
+    # 5. Drop questions / meta-discussion / showcase
     if QUESTION_PATTERNS.search(lead.title):
         return False, 0, [], []
 
@@ -531,12 +574,25 @@ def quality_gate(lead: Lead, max_age_hours: float = 72.0) -> tuple[bool, int, li
     if hiring_hits == 0:
         return False, 0, [], []
 
-    # 8. Extract budget signals (USD amounts, crypto amounts)
+    # 8. Budget threshold — at least $25 USD OR a crypto amount OR recurring rate
+    #    BUT: if title has [HIRING]/[Hiring] flair, skip this check (the flair is
+    #    itself proof of intent — many job posts don't list $ in the body)
+    has_hiring_flair = bool(HIRING_PREFIXES.search(lead.title))
     budget_signals = []
-    for m in re.finditer(r"\$\s?\d[\d,]*(?:\.\d+)?", text):
+    for m in re.finditer(r"\$\s?(\d[\d,]*(?:\.\d+)?)", text):
+        amt_str = m.group(1).replace(",", "")
+        try:
+            amt = float(amt_str)
+            if amt >= min_budget_usd:
+                budget_signals.append(f"${amt:.0f}")
+        except ValueError:
+            pass
+    for m in re.finditer(r"\b(\d+(?:\.\d+)?)\s*(btc|bitcoin|eth|ethereum|usdt|usdc|xmr|monero|sol|solana|ltc|litecoin|bnb|xrp|ada|doge)\b", text, re.IGNORECASE):
         budget_signals.append(m.group(0).strip())
-    for m in re.finditer(r"\b\d+\s*(?:btc|eth|usdt|usdc|xmr|sol|ltc)\b", text, re.IGNORECASE):
-        budget_signals.append(m.group(0).strip())
+    # Recurring rate — count "per hour", "hourly", "per week", "per month", "salary", "/hr", "/hour"
+    recurring = re.search(r"\b(?:hourly|per\s+hour|/hr|/hour|per\s+week|per\s+month|per\s+year|salary|monthly|weekly|annual)\b", text, re.IGNORECASE)
+    if not budget_signals and not recurring and not has_hiring_flair:
+        return False, 0, [], []
 
     # ---------- Score ----------
     s = 30  # base for passing gates
@@ -558,9 +614,19 @@ def quality_gate(lead: Lead, max_age_hours: float = 72.0) -> tuple[bool, int, li
     # Snippet length bonus (more detail = better lead)
     if len(lead.snippet) > 300:
         s += 5
+    # High budget bonus — leads with $500+ budgets score higher
+    for sig in budget_signals:
+        m = re.match(r"\$(\d+)", sig)
+        if m:
+            amt = int(m.group(1))
+            if amt >= 1000:
+                s += 8
+            elif amt >= 500:
+                s += 5
+            elif amt >= 100:
+                s += 3
 
     # Marketing funnel penalty — referral links / "apply at this URL" funnels
-    # are legit paid opportunities but not direct gig work, so penalize not drop.
     if re.search(r"hubs\.l[iy]|linktr\.ee|beacons\.ai|stan\.store", text, re.IGNORECASE):
         s -= 15
 

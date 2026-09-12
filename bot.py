@@ -235,22 +235,71 @@ def cmd_scan(chat_id: int) -> None:
             if PIPE.upsert_lead(l.get("url",""), l.get("title",""), l.get("source",""), l.get("score",0)):
                 new_count += 1
 
-    settings = load_settings()
-    top = sorted(leads, key=lambda x: -x.get("score", 0))[:5]
+    top = sorted(leads, key=lambda x: -x.get("score", 0))[:3]  # top 3 (Telegram chunk limit)
     elapsed = time.time() - start
-    msg = f"✅ *Scan done in {elapsed:.0f}s* — {len(leads)} leads ({new_count} new in pipeline). Top 5:\n\n"
+    header = f"✅ *Scan done in {elapsed:.0f}s* — {len(leads)} leads ({new_count} new). Top 3 with reply text:"
+    send_message(chat_id, header)
+
+    # Send each lead as its own message — title + URL + budget + reply text in code block
     for i, l in enumerate(top, 1):
-        title = (l.get("title") or "")[:70]
+        title = (l.get("title") or "")[:90]
         url = l.get("url", "")
         source = l.get("source", "")
         score = l.get("score", 0)
         niche = l.get("niche", "general")
         age = l.get("age_hours", 0)
         budget = ", ".join(l.get("budget_signals", [])) or "—"
-        msg += f"*{i}. [{score}] {title}*\n"
-        msg += f"`{source}` | `{niche}` | age {age}h | budget {budget}\n"
-        msg += f"{url}\n\n"
-    send_message(chat_id, msg)
+        snippet = (l.get("snippet") or "")[:300].replace("\n", " ")
+        outreach = l.get("outreach_draft") or ""
+
+        msg = (
+            f"*{i}. [{score}] {title}*\n"
+            f"`{source}` | `{niche}` | {age:.0f}h ago | budget: {budget}\n"
+            f"\n"
+            f"*Post URL:* {url}\n"
+        )
+        if snippet:
+            msg += f"\n_{snippet}_\n"
+        if outreach:
+            msg += f"\n*Reply text (copy & paste as Reddit comment/DM):*\n"
+            msg += f"```\n{outreach}\n```\n"
+        send_message(chat_id, msg)
+
+
+def cmd_lead(url: str) -> str:
+    """Show full lead detail + ready-to-paste reply for a specific URL."""
+    if not LEADS_JSON.exists():
+        return "_No leads yet._"
+    try:
+        leads = json.loads(LEADS_JSON.read_text(encoding="utf-8"))
+    except Exception as e:
+        return f"⚠️ Parse failed: {e}"
+    lead = next((l for l in leads if l.get("url") == url), None)
+    if not lead:
+        return f"Lead not found: {url}\n\nUse `/leads` to see URLs."
+    title = lead.get("title") or ""
+    source = lead.get("source", "")
+    score = lead.get("score", 0)
+    niche = lead.get("niche", "general")
+    age = lead.get("age_hours", 0)
+    budget = ", ".join(lead.get("budget_signals", [])) or "—"
+    payment = ", ".join(lead.get("payment_signals", [])) or "—"
+    snippet = (lead.get("snippet") or "")[:1000].replace("\n", " ")
+    outreach = lead.get("outreach_draft") or ""
+
+    msg = (
+        f"*[{score}] {title}*\n"
+        f"`{source}` | `{niche}` | {age:.0f}h ago\n"
+        f"\n"
+        f"*URL:* {url}\n"
+        f"*Budget:* {budget}\n"
+        f"*Payment:* {payment}\n"
+    )
+    if snippet:
+        msg += f"\n*Post body:*\n{snippet}\n"
+    if outreach:
+        msg += f"\n*Reply text (copy & paste):*\n```\n{outreach}\n```"
+    return msg
 
 
 def cmd_leads(limit: int = 10, niche: str | None = None) -> str:
@@ -498,6 +547,11 @@ def handle_update(update: dict) -> None:
         send_message(chat_id, cmd_sources())
     elif cmd == "/daily":
         send_message(chat_id, cmd_daily())
+    elif cmd == "/lead":
+        if not args:
+            send_message(chat_id, "Usage: `/lead <url>` — get full lead + reply text")
+        else:
+            send_message(chat_id, cmd_lead(args[0]))
     elif cmd == "/ping":
         send_message(chat_id, cmd_ping())
     else:
