@@ -1,0 +1,58 @@
+# LeadFinder v3.5 Configuration
+
+scanner:
+  max_age_hours: 72
+  min_budget_usd: 5.0
+  min_score: 25
+  sleep_between_requests: 2.0
+  max_leads_per_run: 200
+
+reddit:
+  # OAuth — free at reddit.com/prefs/apps (create "script" app)
+  # Gives 60 req/min vs 10 unauthenticated
+  client_id: ""
+  client_secret: ""
+  username: ""
+  password: ""
+  # 5 broad search queries (covers ALL subs, 5 requests vs 80+ per-sub)
+  search_queries:
+    - "[Hiring]"
+    - "[TASK]"
+    - "[HIRING]"
+    - "will pay looking for task"
+    - "paid need someone freelance"
+  # RSS fallback subs (used when OAuth fails)
+  rss_subs:
+    - slavelabour
+    - Jobs4Bitcoins
+    - remotejobs
+    - jobbit
+    - videoediting
+
+hn:
+  enabled: true
+
+bitcointalk:
+  enabled: true
+  board_id: 73
+
+notifier:
+  min_score: 25
+  max_messages: 15
+
+bot:
+  scan_timeout: 540
+  heartbeat_interval: 1800
+
+pipeline:
+  auto_expire_hours: 168  # 7 days
+
+portfolio:
+  url: "https://moneyhunterss.github.io/"
+  brand: "MH."
+
+# Turso (free: 100 DBs, 5GB, 500M reads/mo, 10M writes/mo)
+# Leave empty to use JSON file fallback (works on GitHub Actions without Turso)
+turso:
+  url: ""
+  auth_token: ""

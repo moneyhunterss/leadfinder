@@ -1,0 +1,42 @@
+name: Weekly Digest
+"on":
+  schedule:
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    env:
+      TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+      TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      LEADFINDER_PAT: ${{ secrets.LEADFINDER_PAT }}
+    steps:
+      - name: Checkout leadfinder
+        uses: actions/checkout@v4
+        with:
+          repository: moneyhunterss/leadfinder
+          token: ${{ secrets.LEADFINDER_PAT }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install requests PyYAML
+      - name: Send weekly digest
+        run: python -c "
+          import sys; sys.path.insert(0, 'src');
+          from config import Config; from db import DB; from notifiers.telegram import escape_html, _send;
+          cfg = Config(); db = DB(); leads = db.load_leads();
+          pipe = db.pipe_stats();
+          by_t = {};
+          for l in leads: by_t[l.get('tier','?')] = by_t.get(l.get('tier','?'),0)+1;
+          msg = f'<b>📊 Weekly Summary</b>\n\n<b>Total leads:</b> {len(leads)}\n\n<b>By tier:</b>\n';
+          for t in ['elite','pro','standard','micro','unspecified']:
+              if by_t.get(t): msg += f'  {t}: {by_t[t]}\n';
+          msg += f'\n<b>Pipeline:</b> {pipe[\"total\"]} leads\n';
+          for s,n in pipe.get('by_status',{}).items(): msg += f'  {s}: {n}\n';
+          msg += f'\n💰 Total earned: \${pipe.get(\"total_earnings\",0):.0f}';
+          _send(cfg.telegram_token, cfg.telegram_chat_id, msg);
+          print('Weekly digest sent');
+          " || true
