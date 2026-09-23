@@ -233,7 +233,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wnhtiz/task_video_editors_needed/": {
     "title": "[task] Video editors needed!",
     "source": "reddit:r/slavelabour",
-    "score": 67,
+    "score": 62,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -244,7 +244,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wnka9z/task_digital_art_for_a_villagebuilding_game_20/": {
     "title": "[TASK] Digital art for a village-building game ($20)",
     "source": "reddit:r/slavelabour",
-    "score": 83,
+    "score": 78,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -305,6 +305,39 @@
     "earnings_crypto": "",
     "first_seen": 1790188324.549167,
     "last_touched": 1790188324.5491672,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wnd2k8/hiring_organic_content_strategist/": {
+    "title": "[HIRING] Organic Content Strategist",
+    "source": "reddit:r/RemoteJobs",
+    "score": 96,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790199795.5477207,
+    "last_touched": 1790199795.5477211,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wo1xsr/hiring_looking_for_people_who_want_to_work_from/": {
+    "title": "[Hiring] Looking for people who want to work from home $50/week",
+    "source": "reddit:r/RemoteJobs",
+    "score": 85,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790199796.0100534,
+    "last_touched": 1790199796.0100536,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wo08ny/hiring_video_editor_intern_remotebangalore/": {
+    "title": "[HIRING] Video Editor Intern (Remote/Bangalore) — YouTube Channel, Niche Content",
+    "source": "reddit:r/RemoteJobs",
+    "score": 67,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790199796.20136,
+    "last_touched": 1790199796.2013602,
     "notes": ""
   }
 }
