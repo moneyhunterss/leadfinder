@@ -277,7 +277,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wo18rf/task_automate_my_ai_blogwriting_process_25/": {
     "title": "[Task] Automate my AI blog-writing process - $25",
     "source": "reddit:r/slavelabour",
-    "score": 75,
+    "score": 70,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -294,6 +294,17 @@
     "earnings_crypto": "",
     "first_seen": 1790156786.470467,
     "last_touched": 1790156786.4704676,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1woaitm/task_need_cold_callers_uscanada_only/": {
+    "title": "[task] Need cold callers - US/CANADA ONLY",
+    "source": "reddit:r/slavelabour",
+    "score": 100,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790188324.549167,
+    "last_touched": 1790188324.5491672,
     "notes": ""
   }
 }
