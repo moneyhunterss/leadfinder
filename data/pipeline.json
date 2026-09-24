@@ -288,7 +288,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wny6ey/task_need_to_setup_a_gmb_profile/": {
     "title": "[task] Need to setup a GMB profile",
     "source": "reddit:r/slavelabour",
-    "score": 66,
+    "score": 61,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -338,6 +338,28 @@
     "earnings_crypto": "",
     "first_seen": 1790199796.20136,
     "last_touched": 1790199796.2013602,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1worqu3/task_remote_linkedin_va_35_per_day_ongoing_work/": {
+    "title": "[TASK] 🌎 Remote LinkedIn VA | $3–$5 Per Day | Ongoing Work",
+    "source": "reddit:r/slavelabour",
+    "score": 85,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790241031.4807303,
+    "last_touched": 1790241031.4807305,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wout60/task_graphic_designer_for_game_infographic_needed/": {
+    "title": "[Task] Graphic designer for game infographic needed- $15",
+    "source": "reddit:r/slavelabour",
+    "score": 84,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790241031.4812043,
+    "last_touched": 1790241031.4812045,
     "notes": ""
   }
 }
