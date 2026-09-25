@@ -299,7 +299,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1woaitm/task_need_cold_callers_uscanada_only/": {
     "title": "[task] Need cold callers - US/CANADA ONLY",
     "source": "reddit:r/slavelabour",
-    "score": 100,
+    "score": 99,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -376,7 +376,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wp6v72/task_please_create_an_entertaining_video_montage/": {
     "title": "[Task] Please create an entertaining video montage of my euro adventure! $20",
     "source": "reddit:r/slavelabour",
-    "score": 70,
+    "score": 65,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -393,6 +393,17 @@
     "earnings_crypto": "",
     "first_seen": 1790311395.541305,
     "last_touched": 1790311395.5413053,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wpzpgq/task_edit_dates_in_an_image_of_a_pdf_and_make_it/": {
+    "title": "[Task] Edit dates in an image of a pdf and make it look real.",
+    "source": "reddit:r/slavelabour",
+    "score": 84,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790362592.762251,
+    "last_touched": 1790362592.7622516,
     "notes": ""
   }
 }
