@@ -354,7 +354,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wout60/task_graphic_designer_for_game_infographic_needed/": {
     "title": "[Task] Graphic designer for game infographic needed- $15",
     "source": "reddit:r/slavelabour",
-    "score": 69,
+    "score": 64,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -470,6 +470,17 @@
     "earnings_crypto": "",
     "first_seen": 1790382376.4731877,
     "last_touched": 1790382376.473188,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wqrz7o/taskweb_developer_will_code_your_custom_website/": {
+    "title": "[Task]Web Developer will code your custom website for $25 (No upfront cost, building portfolio)",
+    "source": "reddit:r/slavelabour",
+    "score": 94,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790453411.7553377,
+    "last_touched": 1790453411.7553382,
     "notes": ""
   }
 }
