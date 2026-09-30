@@ -563,7 +563,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wtex3l/task_looking_for_oncamera_host_for_youtube_channel/": {
     "title": "[task] Looking for On-camera host for youtube channel",
     "source": "reddit:r/slavelabour",
-    "score": 61,
+    "score": 56,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -662,12 +662,67 @@
   "https://www.reddit.com/r/slavelabour/comments/1wu0iqg/task_collect_package_in_china_and_ship_to_europe/": {
     "title": "[TASK] Collect package in China and ship to europe",
     "source": "reddit:r/slavelabour",
-    "score": 71,
+    "score": 66,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1790776617.2950547,
     "last_touched": 1790776617.295055,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wua0b7/tasklooking_for_an_outbound_team_to_book/": {
+    "title": "[task]Looking for an outbound team to book appointments for a business consultancy",
+    "source": "reddit:r/slavelabour",
+    "score": 82,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790794212.3407648,
+    "last_touched": 1790794212.3407652,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wu5pqb/task_game_show_clip_editor_25_per_episode_ongoing/": {
+    "title": "[TASK] 🎬 Game Show Clip Editor | $25 Per Episode | Ongoing Work",
+    "source": "reddit:r/slavelabour",
+    "score": 79,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790794212.3435981,
+    "last_touched": 1790794212.3435984,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wu6l2y/task_shortform_video_editors_sfx_subtitles/": {
+    "title": "[Task] Short-Form Video Editors – SFX + Subtitles",
+    "source": "reddit:r/slavelabour",
+    "score": 75,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790794212.3446271,
+    "last_touched": 1790794212.3446274,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wubotj/task_graphic_designer_needed_for/": {
+    "title": "[Task] Graphic Designer Needed for Supplement/E-Commerce Brand",
+    "source": "reddit:r/slavelabour",
+    "score": 71,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790794212.3466837,
+    "last_touched": 1790794212.346684,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/jobbit/comments/1wu38ac/hiring_client_communication_specialist/": {
+    "title": "[HIRING]: Client Communication Specialist",
+    "source": "reddit:r/jobbit",
+    "score": 67,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790794212.3477252,
+    "last_touched": 1790794212.3477256,
     "notes": ""
   }
 }
