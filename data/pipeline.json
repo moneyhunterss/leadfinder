@@ -673,7 +673,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wua0b7/tasklooking_for_an_outbound_team_to_book/": {
     "title": "[task]Looking for an outbound team to book appointments for a business consultancy",
     "source": "reddit:r/slavelabour",
-    "score": 77,
+    "score": 72,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -706,7 +706,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wubotj/task_graphic_designer_needed_for/": {
     "title": "[Task] Graphic Designer Needed for Supplement/E-Commerce Brand",
     "source": "reddit:r/slavelabour",
-    "score": 66,
+    "score": 61,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -745,6 +745,17 @@
     "earnings_crypto": "",
     "first_seen": 1790840672.9483614,
     "last_touched": 1790840672.9483616,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wv2g4z/task_hiring_a_3d_artist_for_making_creative/": {
+    "title": "[Task] Hiring a 3d artist for making creative lowpoly/minimalistic house furnitures for a game.",
+    "source": "reddit:r/slavelabour",
+    "score": 85,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790884441.099286,
+    "last_touched": 1790884441.0992863,
     "notes": ""
   }
 }
