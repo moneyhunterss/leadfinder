@@ -739,7 +739,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wur5tm/task_help_with_a_mainland_china_taobao_purchase/": {
     "title": "[task] Help with a mainland China Taobao purchase (must have local Alipay) — costs reimbursed + $5 fee",
     "source": "reddit:r/slavelabour",
-    "score": 79,
+    "score": 74,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -756,6 +756,17 @@
     "earnings_crypto": "",
     "first_seen": 1790884441.099286,
     "last_touched": 1790884441.0992863,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wvlwmz/task_assemble_a_cc0_music_sample_library_from/": {
+    "title": "[Task] Assemble a CC0 music sample library from publicly available files, organized by genre and sound type",
+    "source": "reddit:r/slavelabour",
+    "score": 66,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1790931324.4894133,
+    "last_touched": 1790931324.4894137,
     "notes": ""
   }
 }
