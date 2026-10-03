@@ -728,7 +728,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wui7iu/task_need_someone_to_apply_to_jobs_for_me_must/": {
     "title": "[TASK] Need someone to apply to jobs for me. Must have Claude and other AI tools to tailor the resume for each job",
     "source": "reddit:r/slavelabour",
-    "score": 70,
+    "score": 65,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -778,6 +778,72 @@
     "earnings_crypto": "",
     "first_seen": 1791015437.8297396,
     "last_touched": 1791015437.8297398,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wvshxq/am_i_being_underpaid_10_years_of_ukus_sales/": {
+    "title": "Am I being underpaid? 10+ years of UK/US sales experience, working remotely from Pakistan",
+    "source": "reddit:r/RemoteJobs",
+    "score": 75,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.8628154,
+    "last_touched": 1791034155.8628159,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wvs43l/hiring_usbased_sales_closer_1000_base_10/": {
+    "title": "Hiring: US-Based Sales Closer — $1,000 Base + 10% Commission",
+    "source": "reddit:r/RemoteJobs",
+    "score": 64,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.866216,
+    "last_touched": 1791034155.8662164,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wvhrrn/hiring_senior_software_engineer_applied_ai_at/": {
+    "title": "[Hiring] Senior Software Engineer, Applied AI at Justworks | Remote - Netherlands, Spain or UK | €111-€184, £132K - £170K",
+    "source": "reddit:r/RemoteJobs",
+    "score": 62,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.8673677,
+    "last_touched": 1791034155.867368,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wwgweu/hiring_remote_personal_assistant_to_ceo/": {
+    "title": "HIRING - Remote Personal Assistant to CEO",
+    "source": "reddit:r/RemoteJobs",
+    "score": 57,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.8685207,
+    "last_touched": 1791034155.868521,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1ww58y2/hiring_bilingual_telemarketer_englishspanish/": {
+    "title": "HIRING: Bilingual Telemarketer (English–Spanish) (Full-Time)",
+    "source": "reddit:r/RemoteJobs",
+    "score": 57,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.8696554,
+    "last_touched": 1791034155.8696556,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/RemoteJobs/comments/1wvxh4d/already_teaching_weekend_job_need_online_side/": {
+    "title": "Already teaching + weekend job, need online side income for master's abroad. What actually pays?",
+    "source": "reddit:r/RemoteJobs",
+    "score": 51,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791034155.8719969,
+    "last_touched": 1791034155.871997,
     "notes": ""
   }
 }
