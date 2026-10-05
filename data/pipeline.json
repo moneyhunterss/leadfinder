@@ -882,7 +882,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wx1e94/task_looking_for_someone_to_create_a_logo_50/": {
     "title": "[TASK] Looking for someone to create a logo. $50 PayPal",
     "source": "reddit:r/slavelabour",
-    "score": 85,
+    "score": 80,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -921,6 +921,17 @@
     "earnings_crypto": "",
     "first_seen": 1791137565.0676873,
     "last_touched": 1791137565.0676877,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wxrr9w/task_remote_it_support_va_potential_pay_up_to/": {
+    "title": "[TASK] Remote IT Support VA — Potential Pay up to US$2,000/Month (US$400 Starting Base) — US/Canada/Mexico",
+    "source": "reddit:r/slavelabour",
+    "score": 100,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791158610.6293275,
+    "last_touched": 1791158610.6293278,
     "notes": ""
   }
 }
