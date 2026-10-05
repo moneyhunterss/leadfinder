@@ -915,7 +915,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wxm8ve/task_looking_for_usbased_iphone_users_to_try_my/": {
     "title": "[TASK] Looking for US-based iPhone users to try my app - $10 each for 5 min",
     "source": "reddit:r/slavelabour",
-    "score": 84,
+    "score": 79,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -932,6 +932,17 @@
     "earnings_crypto": "",
     "first_seen": 1791158610.6293275,
     "last_touched": 1791158610.6293278,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wxw1a6/task_investment_opportunities_agent/": {
+    "title": "[Task] - Investment opportunities agent",
+    "source": "reddit:r/slavelabour",
+    "score": 80,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791177949.029393,
+    "last_touched": 1791177949.0293932,
     "notes": ""
   }
 }
