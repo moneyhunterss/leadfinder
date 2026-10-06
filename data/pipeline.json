@@ -992,12 +992,23 @@
   "https://www.reddit.com/r/slavelabour/comments/1wyv746/task_hiring_an_instagram_reel_editor/": {
     "title": "[Task] Hiring an instagram reel editor",
     "source": "reddit:r/slavelabour",
-    "score": 66,
+    "score": 61,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791273358.4076192,
     "last_touched": 1791273358.4076195,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wz2f1s/task_music_writers_needed_5piece/": {
+    "title": "[TASK] Music Writers Needed - $5/Piece",
+    "source": "reddit:r/slavelabour",
+    "score": 79,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791297721.0916376,
+    "last_touched": 1791297721.091638,
     "notes": ""
   }
 }
