@@ -937,7 +937,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wxw1a6/task_investment_opportunities_agent/": {
     "title": "[Task] - Investment opportunities agent",
     "source": "reddit:r/slavelabour",
-    "score": 75,
+    "score": 70,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -948,12 +948,34 @@
   "https://www.reddit.com/r/slavelabour/comments/1wycw1i/task_make_phone_calls_50call/": {
     "title": "[TASK] Make phone calls - $50/call",
     "source": "reddit:r/slavelabour",
-    "score": 97,
+    "score": 92,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791233108.030439,
     "last_touched": 1791233108.0304391,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wymk3p/task_photoshop_3_corrected_characters_into/": {
+    "title": "[TASK] Photoshop 3 corrected characters into existing Ben 10 poster – keep everything else unchanged",
+    "source": "reddit:r/slavelabour",
+    "score": 71,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791250082.4049392,
+    "last_touched": 1791250082.4049394,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wymafb/task_looking_for_german_speakers_for_a_short_3040/": {
+    "title": "[TASK] Looking for German speakers for a short 30–40 second voice recording",
+    "source": "reddit:r/slavelabour",
+    "score": 71,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791250082.4060218,
+    "last_touched": 1791250082.406022,
     "notes": ""
   }
 }
