@@ -1003,7 +1003,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wz2f1s/task_music_writers_needed_5piece/": {
     "title": "[TASK] Music Writers Needed - $5/Piece",
     "source": "reddit:r/slavelabour",
-    "score": 74,
+    "score": 69,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1020,6 +1020,28 @@
     "earnings_crypto": "",
     "first_seen": 1791328938.3067586,
     "last_touched": 1791328938.3067589,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wzt9cm/task_film_15_short_cooking_videos_a_month_for_a/": {
+    "title": "[TASK] Film 15 short cooking videos a month for a recipe app, $250/month + $50 bonus per video that passes 100k views",
+    "source": "reddit:r/slavelabour",
+    "score": 100,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791390329.6587105,
+    "last_touched": 1791390329.6587107,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1wzx8l0/task_enes_bilingual_virtual_assistant/": {
+    "title": "[TASK] EN-ES Bilingual Virtual Assistant",
+    "source": "reddit:r/slavelabour",
+    "score": 76,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791390329.6616588,
+    "last_touched": 1791390329.6616595,
     "notes": ""
   }
 }
