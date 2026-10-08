@@ -1047,7 +1047,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x06ao9/task_flexible_microgig_community_engagement/": {
     "title": "[TASK] Flexible Micro-Gig: Community Engagement Associate — $10 per Task (Avg. $50–60+/Month)",
     "source": "reddit:r/slavelabour",
-    "score": 89,
+    "score": 84,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1113,12 +1113,34 @@
   "https://www.reddit.com/r/slavelabour/comments/1x0m0k3/task_marketing_work_nsfw_content/": {
     "title": "[TASK] Marketing work— NSFW Content",
     "source": "reddit:r/slavelabour",
-    "score": 71,
+    "score": 66,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791470572.9665568,
     "last_touched": 1791470572.966557,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x0y3zj/task_find_me_a_job_for_3000usd/": {
+    "title": "[task] find me a job for 3000usd",
+    "source": "reddit:r/slavelabour",
+    "score": 77,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791490235.9088795,
+    "last_touched": 1791490235.9088798,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x0yhbo/task_freelancers_needed_for_easy_long_term_tasks/": {
+    "title": "[TASK] Freelancers needed for easy long term tasks",
+    "source": "reddit:r/slavelabour",
+    "score": 76,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791490235.9105148,
+    "last_touched": 1791490235.9105153,
     "notes": ""
   }
 }
