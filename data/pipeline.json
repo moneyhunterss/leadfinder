@@ -1014,7 +1014,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1wzf2h1/task_film_a_grandparent_or_yourself_60_sharing_a/": {
     "title": "[TASK] Film a grandparent (or yourself, 60+) sharing a childhood memory, 1–2 min video, $10",
     "source": "reddit:r/slavelabour",
-    "score": 79,
+    "score": 74,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1053,6 +1053,17 @@
     "earnings_crypto": "",
     "first_seen": 1791408401.3115602,
     "last_touched": 1791408401.3115604,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x0cukx/task_looking_for_someone_to_extract_phone_numbers/": {
+    "title": "[TASK] Looking for someone to extract phone numbers",
+    "source": "reddit:r/slavelabour",
+    "score": 66,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791421835.5803814,
+    "last_touched": 1791421835.5803816,
     "notes": ""
   }
 }
