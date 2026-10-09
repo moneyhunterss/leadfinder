@@ -1113,7 +1113,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x0m0k3/task_marketing_work_nsfw_content/": {
     "title": "[TASK] Marketing work— NSFW Content",
     "source": "reddit:r/slavelabour",
-    "score": 66,
+    "score": 61,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1152,6 +1152,17 @@
     "earnings_crypto": "",
     "first_seen": 1791526951.893466,
     "last_touched": 1791526951.8934665,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x1laq2/task_virtual_assistant_remote_opportunity_12hr/": {
+    "title": "[TASK] Virtual Assistant - Remote Opportunity -$12/hr Paypal",
+    "source": "reddit:r/slavelabour",
+    "score": 90,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791552684.5646574,
+    "last_touched": 1791552684.5646577,
     "notes": ""
   }
 }
