@@ -1201,12 +1201,23 @@
   "https://www.reddit.com/r/slavelabour/comments/1x2i42y/task_hiring_full_time_editors/": {
     "title": "[task] hiring full time editors",
     "source": "reddit:r/slavelabour",
-    "score": 96,
+    "score": 91,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791658364.6520548,
     "last_touched": 1791658364.652055,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x2n1v0/task_need_someone_based_in_arizona_to_trial_run/": {
+    "title": "[task] Need Someone Based in Arizona to Trial Run Sales Pitch",
+    "source": "reddit:r/slavelabour",
+    "score": 76,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791669873.6230464,
+    "last_touched": 1791669873.6230469,
     "notes": ""
   }
 }
