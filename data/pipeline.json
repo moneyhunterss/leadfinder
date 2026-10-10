@@ -1069,7 +1069,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x0ir2x/task_5hr_1015_total_research_assistant_for/": {
     "title": "[Task] $5/hr ($10-15 total) - Research Assistant for Occasional Online Research",
     "source": "reddit:r/slavelabour",
-    "score": 73,
+    "score": 68,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1135,7 +1135,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x0yhbo/task_freelancers_needed_for_easy_long_term_tasks/": {
     "title": "[TASK] Freelancers needed for easy long term tasks",
     "source": "reddit:r/slavelabour",
-    "score": 66,
+    "score": 61,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1196,6 +1196,17 @@
     "earnings_crypto": "",
     "first_seen": 1791621324.0644772,
     "last_touched": 1791621324.0644774,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x2i42y/task_hiring_full_time_editors/": {
+    "title": "[task] hiring full time editors",
+    "source": "reddit:r/slavelabour",
+    "score": 96,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791658364.6520548,
+    "last_touched": 1791658364.652055,
     "notes": ""
   }
 }
