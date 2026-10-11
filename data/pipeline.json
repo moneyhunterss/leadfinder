@@ -1212,7 +1212,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x2n1v0/task_need_someone_based_in_arizona_to_trial_run/": {
     "title": "[task] Need Someone Based in Arizona to Trial Run Sales Pitch",
     "source": "reddit:r/slavelabour",
-    "score": 71,
+    "score": 66,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1251,6 +1251,17 @@
     "earnings_crypto": "",
     "first_seen": 1791743047.619027,
     "last_touched": 1791743047.6190271,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x3ifod/task_looking_for_multiple_tiktok_posters_from_usa/": {
+    "title": "[Task] Looking for multiple Tiktok posters from USA",
+    "source": "reddit:r/slavelabour",
+    "score": 89,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791756658.828676,
+    "last_touched": 1791756658.8286765,
     "notes": ""
   }
 }
