@@ -1168,7 +1168,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x1zov7/task_cold_call_a_batch_of_businesses_in_california/": {
     "title": "[task] cold call a batch of businesses in California",
     "source": "reddit:r/slavelabour",
-    "score": 80,
+    "score": 75,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1218,6 +1218,17 @@
     "earnings_crypto": "",
     "first_seen": 1791669873.6230464,
     "last_touched": 1791669873.6230469,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x2tya8/task_experienced_mobile_ios_uiux/": {
+    "title": "[task] experienced mobile ios ui/ux",
+    "source": "reddit:r/slavelabour",
+    "score": 66,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791680050.158618,
+    "last_touched": 1791680050.1586185,
     "notes": ""
   }
 }
