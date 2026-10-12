@@ -1234,7 +1234,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x32p6j/task_i_need_a_new_logo_but_would_want_at_least/": {
     "title": "[task] I need a new logo, but would want at least three proposals. I already have a color scheme and font usage. But I want a icon as well as logo word. Pay is $150 through upwork, since I can invoice that.",
     "source": "reddit:r/slavelabour",
-    "score": 73,
+    "score": 68,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1267,12 +1267,34 @@
   "https://www.reddit.com/r/slavelabour/comments/1x3phd8/task_video_editor_for_law_firm_interview_videos/": {
     "title": "[TASK] Video Editor for Law Firm Interview Videos | $50 USD/video | Ongoing Work",
     "source": "reddit:r/slavelabour",
-    "score": 90,
+    "score": 85,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791790110.764014,
     "last_touched": 1791790110.7640142,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x45xnk/task_need_help_finding_people_experienced_in/": {
+    "title": "[TASK] Need help finding people experienced in trading/investing",
+    "source": "reddit:r/slavelabour",
+    "score": 84,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791824106.423528,
+    "last_touched": 1791824106.4235282,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x3xsca/task_graphic_designer_combining_two_logos/": {
+    "title": "[Task]: Graphic designer combining two logos",
+    "source": "reddit:r/slavelabour",
+    "score": 66,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791824106.428664,
+    "last_touched": 1791824106.4286647,
     "notes": ""
   }
 }
