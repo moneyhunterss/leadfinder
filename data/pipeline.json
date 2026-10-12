@@ -1179,7 +1179,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x233fk/task_looking_for_a_creative_graphic_designer_15/": {
     "title": "[Task] Looking for a creative graphic designer — $15 via PayPal",
     "source": "reddit:r/slavelabour",
-    "score": 74,
+    "score": 69,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1190,7 +1190,7 @@
   "https://www.reddit.com/r/slavelabour/comments/1x240y2/task_looking_for_someone_to_create_my_90_static/": {
     "title": "[TASK] Looking for someone to create my 90% static website in WordPress. Payment rs2000.",
     "source": "reddit:r/slavelabour",
-    "score": 61,
+    "score": 56,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
@@ -1256,12 +1256,23 @@
   "https://www.reddit.com/r/slavelabour/comments/1x3ifod/task_looking_for_multiple_tiktok_posters_from_usa/": {
     "title": "[Task] Looking for multiple Tiktok posters from USA",
     "source": "reddit:r/slavelabour",
-    "score": 89,
+    "score": 84,
     "status": "new",
     "earnings_usd": 0,
     "earnings_crypto": "",
     "first_seen": 1791756658.828676,
     "last_touched": 1791756658.8286765,
+    "notes": ""
+  },
+  "https://www.reddit.com/r/slavelabour/comments/1x3phd8/task_video_editor_for_law_firm_interview_videos/": {
+    "title": "[TASK] Video Editor for Law Firm Interview Videos | $50 USD/video | Ongoing Work",
+    "source": "reddit:r/slavelabour",
+    "score": 90,
+    "status": "new",
+    "earnings_usd": 0,
+    "earnings_crypto": "",
+    "first_seen": 1791790110.764014,
+    "last_touched": 1791790110.7640142,
     "notes": ""
   }
 }
